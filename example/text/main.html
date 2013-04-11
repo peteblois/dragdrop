@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drag/Drop Text Sample</title>
+    <style>
+      .dropTarget {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        margin-left: 20px;
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .dragItem {
+        -ms-user-select:none;
+        -webkit-user-select:none;
+        -moz-user-select: -moz-none;
+      }
+      
+      .dragItem:hover {
+        background: #AAA;
+      }
+
+      .dragging {
+        opacity: .5;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="application/dart" src="main.dart"></script>
+    <script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
+
+    <h1>Sample of drag/dropping text between two containers</h1>
+    Can also select any text on this page and drop it in.
+    <div class='text'>
+    </div>
+  </body>
+</html>
