@@ -117,7 +117,7 @@ abstract class DropTarget {
     } else {
       e.dataTransfer.dropEffect = 'none';
       if (e.dataTransfer.types != null) {
-        print('drag over of unsupported ${e.dataTransfer.types.join(",")}');
+        print('drag over of unsupported: ${e.dataTransfer.types.join(",")}');
       } else {
         // Can happen when dragging non-standard data formats
         // from another app.

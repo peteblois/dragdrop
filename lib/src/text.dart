@@ -12,6 +12,7 @@ class TextDragSource extends DragSource {
   // Default dragging to allow both copy and move.
   String allowedEffects = 'copyMove';
   final StreamController _moved = new StreamController();
+  static const TEXT_TYPE = 'Text';
   static const TEXT_MIME_TYPE = 'text/plain';
 
   TextDragSource(Element target, [String text]):
@@ -22,7 +23,7 @@ class TextDragSource extends DragSource {
   void processDragStart(MouseEvent e) {
     var data = text;
     if (data != null) {
-      e.dataTransfer.setData(TEXT_MIME_TYPE, text);
+      e.dataTransfer.setData(TEXT_TYPE, text);
       e.dataTransfer.effectAllowed = allowedEffects;
     }
   }
@@ -56,18 +57,22 @@ class TextDropTarget extends DropTarget {
   Stream<String> get drops => _controller.stream;
 
   bool canCopy(DataTransfer data) {
-    return data.types != null && data.types.contains(TextDragSource.TEXT_MIME_TYPE);
+    return data.types != null && (
+        data.types.contains(TextDragSource.TEXT_MIME_TYPE) ||
+        data.types.contains(TextDragSource.TEXT_TYPE));
   }
   bool copyData(DataTransfer data) {
-    _controller.add(data.getData(TextDragSource.TEXT_MIME_TYPE));
+    _controller.add(data.getData(TextDragSource.TEXT_TYPE));
     return true;
   }
 
   bool canMove(DataTransfer data) {
-    return data.types != null && data.types.contains(TextDragSource.TEXT_MIME_TYPE);
+    return data.types != null && (
+        data.types.contains(TextDragSource.TEXT_MIME_TYPE) ||
+        data.types.contains(TextDragSource.TEXT_TYPE));
   }
   bool moveData(DataTransfer data) {
-    _controller.add(data.getData(TextDragSource.TEXT_MIME_TYPE));
+    _controller.add(data.getData(TextDragSource.TEXT_TYPE));
     return true;
   }
 }

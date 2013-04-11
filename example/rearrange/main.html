@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drag/Drop Object Sample</title>
+    <style>
+      .rearrangeList {
+        width: 100px;
+        height: 200px;
+        border: 1px solid black;
+        margin-left: 20px;
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .dragItem {
+        -ms-user-select:none;
+        -webkit-user-select:none;
+        -moz-user-select: -moz-none;
+        position: relative;
+        transition: padding .2s;
+      }
+
+      .dragging {
+        opacity: .5;
+        background: transparent;
+      }
+
+      .dropTarget {
+        height: 10px;
+        position: absolute;
+        background: red;
+        left: 0;
+        right: 0;
+        opacity: 0;
+      }
+
+      .dropBeforeTarget {
+        top: 0;
+      }
+
+      .dropAfterTarget {
+        bottom: 0;
+      }
+
+      .dropBeforeHover {
+        padding-top: 10px;
+      }
+
+      .dropAfterHover {
+        padding-bottom: 10px;
+      }
+
+      .dropAfterHover>.dropAfterTarget {
+        height: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="application/dart" src="main.dart"></script>
+    <script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
+
+    <h1>Sample of using drag/drop to rearrange items in a list.</h1>
+    <div class='rearrangeList'></div>
+  </body>
+</html>
