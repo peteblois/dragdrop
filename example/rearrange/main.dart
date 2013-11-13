@@ -1,6 +1,5 @@
 import 'dart:html';
 import 'dart:async';
-import 'dart:json' as json;
 import 'package:drag_drop/drag_drop.dart';
 
 /**

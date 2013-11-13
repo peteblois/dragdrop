@@ -1,6 +1,6 @@
 import 'dart:html';
 import 'dart:async';
-import 'dart:json' as json;
+import 'dart:convert';
 
 import 'package:drag_drop/drag_drop.dart';
 
@@ -44,7 +44,7 @@ void createDropTarget(List<Map> defaultItems) {
 void createDragSource(Map object, Element parent) {
   var item = new LIElement();
   item.classes.add('dragItem');
-  item.text = json.stringify(object);
+  item.text = JSON.encode(object);
   parent.append(item);
 
   // Create the drag source to make the item draggable,

@@ -1,8 +1,9 @@
 name: drag_drop
-authors: ["Pete Blois <github@blois.us>"]
-homepage: https://github.com/peteblois/drag-drop
-description: Drag drop operations
 version: 0.0.1
+author: Pete Blois <github@blois.us>
+description: Drag drop operations
+homepage: https://github.com/peteblois/drag-drop
 dependencies:
+  browser: any
 dev_dependencies:
   unittest: any
